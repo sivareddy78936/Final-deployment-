@@ -28,7 +28,7 @@ function ChartsDropdown({
   // =========================
   // API BASE URL
   // =========================
-  const API_URL = "http://localhost:5050/api/chart-table";
+  const API_URL = "http://32.192.230.40:5050/api/chart-table";
 
   // =========================
   // STATES

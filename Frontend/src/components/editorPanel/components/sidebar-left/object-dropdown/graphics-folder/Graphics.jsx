@@ -37,11 +37,11 @@ function Graphics({ setOpen, setActiveMenu, addElements }) {
       setLoading(true);
 
       const [iconsRes, illustrationsRes, elementsRes] = await Promise.all([
-        axios.get("http://localhost:5050/api/graphics?type=icon"),
+        axios.get("http://32.192.230.40:5050/api/graphics?type=icon"),
 
-        axios.get("http://localhost:5050/api/graphics?type=illustration"),
+        axios.get("http://32.192.230.40:5050/api/graphics?type=illustration"),
 
-        axios.get("http://localhost:5050/api/graphics?type=design-element"),
+        axios.get("http://32.192.230.40:5050/api/graphics?type=design-element"),
       ]);
 
       console.log("icons:", iconsRes.data);

@@ -49,7 +49,7 @@ function ShapesDropdown({ setOpen, setActiveMenu, addElement }) {
 
   const fetchShapes = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/api/shapes");
+      const res = await axios.get("http://32.192.230.40:5050/api/shapes");
 
       // if api data exists
       if (res.data && res.data.length > 0) {

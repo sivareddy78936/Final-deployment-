@@ -34,7 +34,7 @@ function TextStyles({ open, onClose }) {
   }, []);
   const fetchTextStyles = async () => {
     try {
-      const response = await axios.get("http://localhost:5050/api/text-styles");
+      const response = await axios.get("http://32.192.230.40:5050/api/text-styles");
       setStyles(response.data.data);
 
     } catch (error) {
@@ -52,7 +52,7 @@ function TextStyles({ open, onClose }) {
   };
   const saveText = async (id) => {
     try {
-      await axios.put(`http://localhost:5050/api/text-styles/${id}`, {
+      await axios.put(`http://32.192.230.40:5050/api/text-styles/${id}`, {
         preview_text: editText,
         text_color: selectedColor,
 

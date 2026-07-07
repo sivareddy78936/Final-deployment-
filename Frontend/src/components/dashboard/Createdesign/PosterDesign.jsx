@@ -81,7 +81,7 @@ export default function PosterDesign() {
 };
  console.log("Sending Payload:", payload);
       const res = await axios.post(
-        "http://localhost:5050/api/cloud-status",
+        "http://32.192.230.40:5050/api/cloud-status",
          payload,
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
@@ -98,7 +98,7 @@ export default function PosterDesign() {
     try {
       const [width, height] = template.dimensions.toLowerCase().replace("px", "").split("x").map(v => parseInt(v.trim()));
       const res = await axios.post(
-        "http://localhost:5050/api/designs",
+        "http://32.192.230.40:5050/api/designs",
         { name: template.title, width, height },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );

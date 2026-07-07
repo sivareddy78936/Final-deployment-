@@ -24,7 +24,7 @@ export default function Presentation() {
       
        console.log("Sending Payload:", payload);
             const res = await axios.post(
-              "http://localhost:5050/api/cloud-status",
+              "http://32.192.230.40:5050/api/cloud-status",
                payload,
               { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
             );
@@ -42,7 +42,7 @@ export default function Presentation() {
     try {
       const [width, height] = templateItem.dimensions.toLowerCase().replace("px", "").split("x").map(v => parseInt(v.trim()));
       const res = await axios.post(
-        "http://localhost:5050/api/designs",
+        "http://32.192.230.40:5050/api/designs",
         {
           name: templateItem.title,
           width: width || 1920,

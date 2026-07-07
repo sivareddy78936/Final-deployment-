@@ -25,7 +25,7 @@ export default function AboutApp() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5050/api/about")
+      .get("http://32.192.230.40:5050/api/about")
       .then((res) => {
         if (res?.data) {
           // CHANGED: Replaced merge logic with explicit mapping
@@ -55,7 +55,7 @@ export default function AboutApp() {
 
   // CHANGED: New function for opening legal pages
   const openLegalPage = (url) => {
-    window.open(`http://localhost:5050${url}`, "_blank");
+    window.open(`http://32.192.230.40:5050${url}`, "_blank");
   };
 
   // CHANGED: Added loading UI
@@ -128,7 +128,7 @@ export default function AboutApp() {
                       Website:{" "}
                       <span className="section-span">
                         <a
-                          href="http://localhost:5050/api/about/website"
+                          href="http://32.192.230.40:5050/api/about/website"
                           target="_blank"
                           rel="noopener noreferrer"
                         >

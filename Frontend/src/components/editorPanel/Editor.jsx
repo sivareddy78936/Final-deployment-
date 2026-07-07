@@ -128,7 +128,7 @@ export default function Editor() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        `http://localhost:5050/api/cloud-status/${projectId}`,
+        `http://32.192.230.40:5050/api/cloud-status/${projectId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -167,7 +167,7 @@ export default function Editor() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5050/api/designs/${projectId}`,
+        `http://32.192.230.40:5050/api/designs/${projectId}`,
         {
           name: design.name,
           width: design.width,

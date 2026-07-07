@@ -96,7 +96,7 @@ const TrashView = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5050/api/trash", {
+      const res = await axios.get("http://32.192.230.40:5050/api/trash", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -130,7 +130,7 @@ const TrashView = () => {
 
       for (const id of selectedIds) {
         await axios.put(
-          `http://localhost:5050/api/trash/recover/${id}`,
+          `http://32.192.230.40:5050/api/trash/recover/${id}`,
           {},
           {
             headers: {
@@ -155,7 +155,7 @@ const TrashView = () => {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete("http://localhost:5050/api/trash", {
+      await axios.delete("http://32.192.230.40:5050/api/trash", {
         headers: {
           Authorization: `Bearer ${token}`
         }

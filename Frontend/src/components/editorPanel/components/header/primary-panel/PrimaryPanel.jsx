@@ -28,7 +28,7 @@ function PrimaryPanel({ design, designId, elements }) {
 
       // UPDATE CLOUD STATUS TITLE
       await axios.patch(
-        `http://localhost:5050/api/cloud-status/${designId}/title`,
+        `http://32.192.230.40:5050/api/cloud-status/${designId}/title`,
         {
           title,
         },
@@ -41,7 +41,7 @@ function PrimaryPanel({ design, designId, elements }) {
 
       // UPDATE DESIGN
       await axios.put(
-        `http://localhost:5050/api/designs/${designId}`,
+        `http://32.192.230.40:5050/api/designs/${designId}`,
         {
           name: title,
           width: design?.width,

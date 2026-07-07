@@ -14,7 +14,7 @@ import templates1 from "../../../assets/Starred-page-image/templates1.png";
 import photos1 from "../../../assets/Starred-page-image/Photos1.png";
 import graphics1 from "../../../assets/Starred-page-image/Graphics1.png";
 
-const API_URL = "http://localhost:5050/api/dashboardStarred";
+const API_URL = "http://32.192.230.40:5050/api/dashboardStarred";
 
 function Starred({ showProjectSearch, setShowProjectSearch }) {
   const [starredItems, setStarredItems] = useState([]);

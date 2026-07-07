@@ -65,7 +65,7 @@ function PhotoDropdown({ setOpen, setActiveMenu, addImage, addElement }) {
       setLoading(true);
       setError(null);
 
-      const res = await axios.get("http://localhost:5050/api/photos", {
+      const res = await axios.get("http://32.192.230.40:5050/api/photos", {
         params: {
           source: "all",
           search: searchTerm,

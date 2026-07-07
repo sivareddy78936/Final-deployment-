@@ -95,7 +95,7 @@ function Template({ open, onClose ,templateId}) {
   const fetchTemplates = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5050/api/templates/related-templates/${templateId}`,
+        `http://32.192.230.40:5050/api/templates/related-templates/${templateId}`,
       );
       const templates = response.data.templates || [];
       console.log("related templates",templates);
@@ -115,7 +115,7 @@ function Template({ open, onClose ,templateId}) {
   const fetchRecentTemplates = async () => {    //chaned here
     try {
       const response = await axios.get(
-        "http://localhost:5050/api/templates/recent"
+        "http://32.192.230.40:5050/api/templates/recent"
       );
       console.log("recent templates",response.data.templates);
      
@@ -141,7 +141,7 @@ function Template({ open, onClose ,templateId}) {
   const fetchStarredTemplates = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5050/api/starred/${userId}`,
+        `http://32.192.230.40:5050/api/starred/${userId}`,
       );
       // ✅ CHANGED: read from response.data.data.templates
       const starredIds = (response.data.data?.templates || []).map(
@@ -166,7 +166,7 @@ function Template({ open, onClose ,templateId}) {
         return;
       }
       const response = await axios.get(
-        `http://localhost:5050/api/templates/search?search=${value}`,
+        `http://32.192.230.40:5050/api/templates/search?search=${value}`,
       );
       setAllTemplates(response.data.data || []);
     } catch (error) {
@@ -182,7 +182,7 @@ function Template({ open, onClose ,templateId}) {
   const filterTemplates = async (license, orientation, color) => {
     try {
       const response = await axios.get(
-        `http://localhost:5050/api/templates/filter`,
+        `http://32.192.230.40:5050/api/templates/filter`,
         {
         params: {
       category: license, // adjust based on your backend
@@ -211,7 +211,7 @@ function Template({ open, onClose ,templateId}) {
  
       if (isStarred) {
         // ✅ CHANGED: unstar via DELETE /api/starred
-        await axios.delete(`http://localhost:5050/api/starred`, {
+        await axios.delete(`http://32.192.230.40:5050/api/starred`, {
           data: {
             user_id: userId,
             item_id: templateId,
@@ -222,7 +222,7 @@ function Template({ open, onClose ,templateId}) {
         setStarredTemplates((prev) => prev.filter((id) => id !== templateId));
       } else {
         // ✅ CHANGED: star via POST /api/starred
-        await axios.post(`http://localhost:5050/api/starred`, {
+        await axios.post(`http://32.192.230.40:5050/api/starred`, {
           user_id: userId,
           item_id: templateId,
           item_type: "template",
@@ -249,7 +249,7 @@ function Template({ open, onClose ,templateId}) {
   const updateLastUsed = async (templateId) => {
     try {
      await axios.post(
-  `http://localhost:5050/api/templates/${templateId}/use`
+  `http://32.192.230.40:5050/api/templates/${templateId}/use`
 );
       fetchRecentTemplates();
       // loadRecentTemplates();
@@ -266,7 +266,7 @@ function Template({ open, onClose ,templateId}) {
   const handleViewMore = async (template) => {
   try {
     const response = await axios.get(
-      `http://localhost:5050/api/templates/details/${template.id}`
+      `http://32.192.230.40:5050/api/templates/details/${template.id}`
     );
  
     const templateData = response.data.templates;

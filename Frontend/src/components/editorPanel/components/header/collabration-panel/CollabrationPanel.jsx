@@ -16,7 +16,7 @@ function CollabrationPanel({ designId, }) {
   // ==========================================
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:5050");
+    socketRef.current = io("http://32.192.230.40:5050");
 
     socketRef.current.emit("join-design", {
       designId: designId,
@@ -104,7 +104,7 @@ function CollabrationPanel({ designId, }) {
       if (!designId) return;
 
       const res = await axios.get(
-        `http://localhost:5050/api/collaboration/design/${designId}`,
+        `http://32.192.230.40:5050/api/collaboration/design/${designId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -150,7 +150,7 @@ function CollabrationPanel({ designId, }) {
   useEffect(() => {
     if (!currentUser.id || !designId) return;
 
-    const socket = io("http://localhost:5050");
+    const socket = io("http://32.192.230.40:5050");
 
     socket.emit("user-online", currentUser.id);
 
