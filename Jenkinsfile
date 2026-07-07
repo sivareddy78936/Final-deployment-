@@ -1,15 +1,20 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'NodeJS'
+    }
+
     stages {
 
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                checkout scm
+                git branch: 'main',
+                url: 'https://github.com/sivareddy78936/Final-deployment-.git'
             }
         }
 
-        stage('Install Backend') {
+        stage('Install Backend Dependencies') {
             steps {
                 dir('Backend') {
                     sh 'npm install'
@@ -17,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Install Frontend') {
+        stage('Install Frontend Dependencies') {
             steps {
                 dir('Frontend') {
                     sh 'npm install'
@@ -33,14 +38,19 @@ pipeline {
             }
         }
 
+        stage('Build Completed') {
+            steps {
+                echo 'Build completed successfully.'
+            }
+        }
     }
 
     post {
         success {
-            echo 'Build Successful'
+            echo 'Pipeline executed successfully.'
         }
         failure {
-            echo 'Build Failed'
+            echo 'Pipeline failed.'
         }
     }
 }
